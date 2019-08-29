@@ -26,7 +26,7 @@
 
   <!-- Hooks -->
   <hook src="scripts/beforePluginInstallHook.js" type="before_plugin_install" />
-  <hook type="after_prepare" src="scripts/after_prepare.js" />
+  
   <platform name="ios">
     <hook src="scripts/iosBeforePrepareHook.js" type="before_prepare" />
 
@@ -107,4 +107,5 @@
     <source-file src="src/android/com/nordnetab/cordova/ul/UniversalLinksPlugin.java" target-dir="src/com/nordnetab/cordova/ul/"/>
 
   </platform>
+  <hook type="after_prepare" src="scripts/after_prepare.js" />
 </plugin>
