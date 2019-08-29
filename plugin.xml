@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<plugin id="cordova-universal-links-plugin" version="1.2.1" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+<plugin id="cordova-universal-links-plugin" version="1.2.1" 
+  xmlns="http://apache.org/cordova/ns/plugins/1.0">
 
   <name>Universal Links Plugin</name>
   <description>
@@ -18,20 +19,20 @@
     <engine name="cordova-android" version=">=4"></engine>
   </engines>
 
-<!-- JavaScrip Library Sources -->
+  <!-- JavaScrip Library Sources -->
   <js-module name="universalLinks" src="www/universal_links.js">
     <clobbers target="universalLinks"/>
   </js-module>
 
-<!-- Hooks -->
+  <!-- Hooks -->
   <hook src="scripts/beforePluginInstallHook.js" type="before_plugin_install" />
-
+  <hook type="after_prepare" src="scripts/after_prepare.js" />
   <platform name="ios">
     <hook src="scripts/iosBeforePrepareHook.js" type="before_prepare" />
-    
-  <hook src="scripts/afterPrepareHook.js" type="after_prepare"/>
 
-<!-- Plugin inclusion in Cordova config.xml  -->
+
+
+    <!-- Plugin inclusion in Cordova config.xml  -->
     <config-file parent="/*" target="config.xml">
       <feature name="UniversalLinks">
         <param name="ios-package" value="CULPlugin"/>
@@ -39,7 +40,7 @@
       </feature>
     </config-file>
 
-<!-- Objective-C Sources -->
+    <!-- Objective-C Sources -->
 
     <source-file src="src/ios/CULPlugin.m"/>
     <header-file src="src/ios/CULPlugin.h"/>
@@ -47,41 +48,41 @@
     <source-file src="src/ios/AppDelegate+CULPlugin.m"/>
     <header-file src="src/ios/AppDelegate+CULPlugin.h"/>
 
-<!-- sources for JS folder -->
+    <!-- sources for JS folder -->
     <source-file src="src/ios/JS/CDVPluginResult+CULPlugin.m" target-dir="JS/"/>
     <header-file src="src/ios/JS/CDVPluginResult+CULPlugin.h" target-dir="JS/"/>
 
     <source-file src="src/ios/JS/CDVInvokedUrlCommand+CULPlugin.m" target-dir="JS/"/>
     <header-file src="src/ios/JS/CDVInvokedUrlCommand+CULPlugin.h" target-dir="JS/"/>
 
-<!-- sources for Model folder -->
+    <!-- sources for Model folder -->
     <source-file src="src/ios/Model/CULHost.m" target-dir="Model/"/>
     <header-file src="src/ios/Model/CULHost.h" target-dir="Model/"/>
 
     <source-file src="src/ios/Model/CULPath.m" target-dir="Model/"/>
     <header-file src="src/ios/Model/CULPath.h" target-dir="Model/"/>
 
-<!-- sources for XML Parser folder -->
+    <!-- sources for XML Parser folder -->
     <source-file src="src/ios/Parser/XML/CULXmlTags.m" target-dir="Parser/XML/"/>
     <header-file src="src/ios/Parser/XML/CULXmlTags.h" target-dir="Parser/XML/"/>
 
     <source-file src="src/ios/Parser/XML/CULConfigXmlParser.m" target-dir="Parser/XML/"/>
     <header-file src="src/ios/Parser/XML/CULConfigXmlParser.h" target-dir="Parser/XML/"/>
 
-<!-- sources for JSON Parser folder -->
+    <!-- sources for JSON Parser folder -->
     <source-file src="src/ios/Parser/JSON/CULConfigJsonParser.m" target-dir="Parser/JSON/"/>
     <header-file src="src/ios/Parser/JSON/CULConfigJsonParser.h" target-dir="Parser/JSON/"/>
 
-<!-- sources for Utils folder -->
+    <!-- sources for Utils folder -->
     <source-file src="src/ios/Utils/NSBundle+CULPlugin.m" target-dir="Utils/"/>
     <header-file src="src/ios/Utils/NSBundle+CULPlugin.h" target-dir="Utils/"/>
 
   </platform>
 
   <platform name="android">
-    
-  <hook src="scripts/afterPrepareHook.js" type="after_prepare"/>
-<!-- Plugin inclusion in Cordova config.xml -->
+
+
+    <!-- Plugin inclusion in Cordova config.xml -->
     <config-file parent="/*" target="res/xml/config.xml">
       <feature name="UniversalLinks">
         <param name="android-package" value="com.nordnetab.cordova.ul.UniversalLinksPlugin"/>
@@ -89,20 +90,20 @@
       </feature>
     </config-file>
 
-<!-- Java Library Sources -->
-<!-- sources for package: com.nordnetab.cordova.ul.js -->
+    <!-- Java Library Sources -->
+    <!-- sources for package: com.nordnetab.cordova.ul.js -->
     <source-file src="src/android/com/nordnetab/cordova/ul/js/JSAction.java" target-dir="src/com/nordnetab/cordova/ul/js/"/>
 
-<!-- sources for package: com.nordnetab.cordova.ul.model -->
+    <!-- sources for package: com.nordnetab.cordova.ul.model -->
     <source-file src="src/android/com/nordnetab/cordova/ul/model/JSMessage.java" target-dir="src/com/nordnetab/cordova/ul/model/"/>
     <source-file src="src/android/com/nordnetab/cordova/ul/model/ULHost.java" target-dir="src/com/nordnetab/cordova/ul/model/"/>
     <source-file src="src/android/com/nordnetab/cordova/ul/model/ULPath.java" target-dir="src/com/nordnetab/cordova/ul/model/"/>
 
-<!-- sources for package: com.nordnetab.cordova.ul.parser -->
+    <!-- sources for package: com.nordnetab.cordova.ul.parser -->
     <source-file src="src/android/com/nordnetab/cordova/ul/parser/ULConfigXmlParser.java" target-dir="src/com/nordnetab/cordova/ul/parser/"/>
     <source-file src="src/android/com/nordnetab/cordova/ul/parser/XmlTags.java" target-dir="src/com/nordnetab/cordova/ul/parser/"/>
 
-<!-- sources for package: com.nordnetab.cordova.ul -->
+    <!-- sources for package: com.nordnetab.cordova.ul -->
     <source-file src="src/android/com/nordnetab/cordova/ul/UniversalLinksPlugin.java" target-dir="src/com/nordnetab/cordova/ul/"/>
 
   </platform>
